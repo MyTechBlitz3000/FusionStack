@@ -1,0 +1,26 @@
+{
+  "name": "novafusiondb",
+  "version": "1.0.0",
+  "description": "Hybrid full-stack database platform using Python, SQLite3, SwiftUI, and HTML.",
+  "main": "index.js",
+  "scripts": {
+    "start": "python3 -m http.server 8080",
+    "dev": "live-server web-dashboard",
+    "backend": "cd backend && uvicorn main:app --reload",
+    "test": "echo \"No tests configured\""
+  },
+  "keywords": [
+    "swiftui",
+    "python",
+    "sqlite3",
+    "fastapi",
+    "database",
+    "hybrid",
+    "fullstack"
+  ],
+  "author": "Justin",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
