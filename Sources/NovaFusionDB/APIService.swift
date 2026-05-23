@@ -1,5 +1,6 @@
 import Foundation
 
+@MainActor
 final class APIService {
 
     static let shared = APIService()
@@ -11,6 +12,7 @@ final class APIService {
         guard let url = URL(
             string: "http://127.0.0.1:8000/users"
         ) else {
+
             print("❌ Invalid URL")
             return []
         }
