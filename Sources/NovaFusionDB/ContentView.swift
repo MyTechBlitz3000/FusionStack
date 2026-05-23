@@ -8,30 +8,42 @@ struct ContentView: View {
 
         NavigationStack {
 
-            List(users) { user in
+            Group {
 
-                VStack(alignment: .leading) {
+                if users.isEmpty {
 
-                    Text(user.username)
-                        .font(.headline)
+                    VStack(spacing: 12) {
 
-                    Text(user.email)
-                        .foregroundStyle(.secondary)
+                        Image(systemName: "person.3")
+
+                        Text("No Users Found")
+                    }
+
+                } else {
+
+                    List(users) { user in
+
+                        VStack(alignment: .leading) {
+
+                            Text(user.username)
+                                .font(.headline)
+
+                            Text(user.email)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
                 }
             }
-            .navigationTitle("NovaFusionDB")
+            .navigationTitle("FusionStack")
             .task {
-                await loadUsers()
+
+                users = await APIService.shared.fetchUsers()
             }
         }
     }
+}
 
-    func loadUsers() async {
+#Preview {
 
-        do {
-            users = try await APIService.shared.fetchUsers()
-        } catch {
-            print(error)
-        }
-    }
+    ContentView()
 }
