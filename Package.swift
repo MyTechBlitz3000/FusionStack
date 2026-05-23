@@ -11,7 +11,7 @@ let package = Package(
     ],
 
     products: [
-        .executable(
+        .library(
             name: "FusionStack",
             targets: ["FusionStack"]
         )
@@ -19,7 +19,7 @@ let package = Package(
 
     targets: [
 
-        .executableTarget(
+        .target(
             name: "FusionStack",
             path: "Sources/NovaFusionDB"
         ),
