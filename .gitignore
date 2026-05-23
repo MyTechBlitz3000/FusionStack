@@ -1,0 +1,98 @@
+# =========================================
+# NovaFusionDB Git Ignore
+# =========================================
+
+# macOS
+.DS_Store
+
+# Xcode / Swift
+.build/
+DerivedData/
+.swiftpm/
+Packages/
+*.xcodeproj
+*.xcworkspace
+*.xcuserstate
+*.xcuserdata
+
+# Swift Package Manager
+Package.resolved
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+*.db
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# FastAPI
+instance/
+
+# Environment Variables
+.env
+.env.local
+.env.production
+
+# Logs
+*.log
+
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+pnpm-lock.yaml
+
+# VSCode
+.vscode/
+
+# JetBrains
+.idea/
+
+# Coverage
+coverage/
+htmlcov/
+
+# Docker
+docker-data/
+
+# Temporary Files
+tmp/
+temp/
+
+# Cache
+.cache/
+
+# Build Outputs
+dist/
+build/
+
+# Uploads
+uploads/
+
+# Secrets
+secrets.json
+config.private.json
+
+# Generated Files
+generated/
+
+# SQLite WAL Files
+*.sqlite-shm
+*.sqlite-wal
+
+# Swift Generated
+*.swiftdoc
+*.swiftmodule
+*.swiftsourceinfo
+
+# Linux
+*~
+
+# Windows
+Thumbs.db
+Desktop.ini
