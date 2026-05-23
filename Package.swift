@@ -27,7 +27,7 @@ let package = Package(
         .testTarget(
             name: "FusionStackTests",
             dependencies: ["FusionStack"],
-            path: "Tests"
+            path: "Tests/NovaFusionDBTests"
         )
     ]
 )
