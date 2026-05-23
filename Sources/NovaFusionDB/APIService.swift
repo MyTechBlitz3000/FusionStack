@@ -4,19 +4,42 @@ final class APIService {
 
     static let shared = APIService()
 
-    func fetchUsers() async throws -> [User] {
+    private init() {}
 
-        let url = URL(
+    func fetchUsers() async -> [User] {
+
+        guard let url = URL(
             string: "http://127.0.0.1:8000/users"
-        )!
+        ) else {
+            print("❌ Invalid URL")
+            return []
+        }
 
-        let (data, _) = try await URLSession.shared.data(
-            from: url
-        )
+        do {
 
-        return try JSONDecoder().decode(
-            [User].self,
-            from: data
-        )
+            let (data, response) = try await URLSession.shared.data(
+                from: url
+            )
+
+            guard let httpResponse = response as? HTTPURLResponse else {
+
+                print("❌ Invalid Response")
+                return []
+            }
+
+            print("📡 Status:", httpResponse.statusCode)
+
+            let users = try JSONDecoder().decode(
+                [User].self,
+                from: data
+            )
+
+            return users
+
+        } catch {
+
+            print("❌ API Error:", error)
+            return []
+        }
     }
 }
